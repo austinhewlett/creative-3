@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Address Book</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <!--<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>-->
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="AddressBook" ng-controller="MainCtrl">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="page-header">
+            <h1>Address Book</h1>
+        </div>
+
+        <!-- LIST CONTACTS -->
+        <div ng-repeat="contact in contacts">
+            {{contact.name}}
+        </div>
+
+        <!-- SEARCH CONTACT (FILTER ON DISPLAYED LIST) -->
+
+    </div>
+</div>
+</body>
+</html>
