@@ -30,23 +30,27 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <form name="contactForm" ng-submit="addContact(contactForm)">
+                        <form name="contactForm" ng-submit="addContact">
                             <h2>Add New Contact</h2>
                             <div class="form-group">
                                 <label for="name">Name:</label>
-                                <input class="form-control" type="text" id="name" ng-model="name">
+                                <input class="form-control" type="text" id="name" ng-model="name" required>
+                                <span ng-show="contactForm.name.$touched && contactForm.name.$invalid">Name is required</span>
                             </div>
                             <div class="form-group">
                                 <label for="mobile">Mobile:</label>
                                 <input class="form-control" type="text" id="mobile" ng-model="mobile">
+                                <span ng-show="contactForm.mobile.$invalid">Invalid Mobile Number</span>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input class="form-control" type="text" id="email" ng-model="email">
+                                <input class="form-control" type="email" id="email" ng-model="email">
+                                <span ng-show="contactForm.email.$invalid">Invalid Email</span>
                             </div>
                             <div class="form-group">
-                                <label for="image_url">Image URL:</label>
-                                <input class="form-control" type="text" id="image_url" ng-model="url">
+                                <label for="url">Image URL:</label>
+                                <input class="form-control" type="url" id="url" ng-model="url">
+                                <span ng-show="contactForm.url.$invalid">Invalid URL</span>
                             </div>
                             <div class="row">
                                 <button type="submit" class="btn btn-primary pull-right pad">
