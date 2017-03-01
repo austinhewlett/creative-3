@@ -8,11 +8,15 @@ angular.module('AddressBook', [])
         var o = {
             contacts: [
                 {
-                    name: "Austin",
-                    mobile: "111-222-4444", // TODO: VALIDATOR ON MOBILE
-                    email: "m3@byu.edu",
+                    name: "Bilbo Baggins",
+                    mobile: "", // TODO: VALIDATOR ON MOBILE
+                    email: "bilbo@the.shire",
                     url: "https://www.drupal.org/files/issues/default-avatar.png" // TODO: VALIDATOR ON IMAGE URL
-
+                }, {
+                    name: "Frodo Baggins",
+                    mobile: "", // TODO: VALIDATOR ON MOBILE
+                    email: "frodo@ofthe.shire",
+                    url: "https://www.drupal.org/files/issues/default-avatar.png" // TODO: VALIDATOR ON IMAGE URL
                 }
             ]
         };
@@ -29,11 +33,16 @@ angular.module('AddressBook', [])
                     return;
                 }
                 $scope.contacts.push({
-                    name: name,
-                    mobile: mobile,
-                    email: email,
-                    url: url
+                    name: $scope.name,
+                    mobile: $scope.mobile,
+                    email: $scope.email,
+                    url: $scope.url
                 });
+
+                $scope.name = '';
+                $scope.mobile = '';
+                $scope.email = '';
+                $scope.url = '';
             }
         }
     ]);
