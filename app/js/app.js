@@ -11,7 +11,7 @@ angular.module('AddressBook', [])
                     name: "Austin",
                     mobile: "111-222-4444", // TODO: VALIDATOR ON MOBILE
                     email: "m3@byu.edu",
-                    image_url: "http" // TODO: VALIDATOR ON IMAGE URL
+                    url: "https://www.drupal.org/files/issues/default-avatar.png" // TODO: VALIDATOR ON IMAGE URL
 
                 }
             ]
@@ -23,5 +23,17 @@ angular.module('AddressBook', [])
         'contactFactory',
         function ($scope, contactFactory) {
             $scope.contacts = contactFactory.contacts;
+
+            $scope.addContact = function () {
+                if ($scope.name === '') {
+                    return;
+                }
+                $scope.contacts.push({
+                    name: name,
+                    mobile: mobile,
+                    email: email,
+                    url: url
+                });
+            }
         }
     ]);
