@@ -28,11 +28,8 @@ angular.module('AddressBook', [])
         function ($scope, contactFactory) {
             $scope.contacts = contactFactory.contacts;
 
-            $scope.addContact = function (contactForm) {
+            $scope.addContact = function () {
                 if ($scope.name === '') {
-                    return;
-                }
-                if (!isValid($scope.name) ||  !isValid($scope.mobile) || !isValid($scope.email) || !isValid($scope.url)) {
                     return;
                 }
                 $scope.contacts.push({
@@ -49,7 +46,3 @@ angular.module('AddressBook', [])
             }
         }
     ]);
-
-function isValid(formElement){
-    return formElement.$valid;
-}
