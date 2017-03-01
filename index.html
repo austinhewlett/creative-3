@@ -1,7 +1,10 @@
 <html>
 <head>
     <title>Address Book</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="application/javascript"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
     <!--<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>-->
     <script src="js/app.js"></script>
@@ -16,6 +19,40 @@
         <!-- LIST CONTACTS -->
         <div ng-repeat="contact in contacts">
             {{contact.name}}
+        </div>
+
+        <!-- ADD CONTACT -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContactModal">
+            Add Contact
+        </button>
+
+        <div class="modal fade" id="addContactModal" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form name="contactForm" ng-submit="addNew(contactForm)">
+                            <h2>Add New Contact</h2>
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input class="form-control" type="text" id="name" ng-model="contact.name">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Mobile:</label>
+                                <input class="form-control" type="text" id="mobile" ng-model="contact.mobile">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input class="form-control" type="text" id="email" ng-model="contact.email">
+                            </div>
+                            <div class="form-group">
+                                <label for="image_url">Image URL:</label>
+                                <input class="form-control" type="text" id="image_url" ng-model="contact.image_url">
+                            </div>
+                            <button class="btn btn-primary" data-dismiss="modal">Add Contact</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- SEARCH CONTACT (FILTER ON DISPLAYED LIST) -->
