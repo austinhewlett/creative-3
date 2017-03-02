@@ -13,6 +13,10 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="page-header">
+
+            <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#addContactModal">
+                Add Contact
+            </button>
             <h1>Address Book</h1>
         </div>
 
@@ -43,15 +47,9 @@
                 <td>{{contact.email}}</td>
               </tr>
             </tbody>
-
-            <!-- <div class=''> {{contact.name}} </div> -->
         </table>
 
         <!-- ADD CONTACT -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContactModal">
-            Add Contact
-        </button>
-
         <div class="modal fade" id="addContactModal" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

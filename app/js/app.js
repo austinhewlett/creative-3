@@ -9,12 +9,12 @@ angular.module('AddressBook', [])
             contacts: [
                 {
                     name: "Bilbo Baggins",
-                    mobile: "", // TODO: VALIDATOR ON MOBILE
+                    mobile: "(801) 375-5133",
                     email: "bilbo@the.shire",
-                    url: "https://www.drupal.org/files/issues/default-avatar.png" // TODO: VALIDATOR ON IMAGE URL
+                    url: "https://www.drupal.org/files/issues/default-avatar.png"
                 }, {
                     name: "Frodo Baggins",
-                    mobile: "",
+                    mobile: "(801) 377-8063",
                     email: "frodo@ofthe.shire",
                     url: "https://m.popkey.co/ee1ce5/xq1RX.gif"
                 }
@@ -32,6 +32,9 @@ angular.module('AddressBook', [])
             $scope.addContact = function () {
                 if ($scope.name === '') {
                     return;
+                }
+                if (!$scope.url) {
+                    $scope.url = "https://www.drupal.org/files/issues/default-avatar.png";
                 }
                 $scope.contacts.push({
                     name: $scope.name,
