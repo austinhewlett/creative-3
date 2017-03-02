@@ -1,11 +1,11 @@
 <html>
 <head>
     <title>Address Book</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="application/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
     <!--<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>-->
     <script src="js/app.js"></script>
 </head>
@@ -16,10 +16,36 @@
             <h1>Address Book</h1>
         </div>
 
-        <!-- LIST CONTACTS -->
-        <div ng-repeat="contact in contacts">
-            {{contact.name}}
+        <!-- SEARCH CONTACTS -->
+        <div class="form-group has-feedback">
+          <input type="text" ng-model="query" class="form-control" placeholder="Search">
+          <span ng-click='query = ""'
+                class="clear glyphicon glyphicon-remove form-control-feedback"
+                uib-tooltip="clear">
+          </span>
         </div>
+
+        <!-- LIST CONTACTS -->
+        <table class='table table-hover'>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody ng-repeat="contact in contacts | filter:query | orderBy : 'name'">
+              <tr>
+                <td><img ng-src="{{contact.url}}" /></td>
+                <td>{{contact.name}}</td>
+                <td>{{contact.mobile}}</td>
+                <td>{{contact.email}}</td>
+              </tr>
+            </tbody>
+
+            <!-- <div class=''> {{contact.name}} </div> -->
+        </table>
 
         <!-- ADD CONTACT -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addContactModal">

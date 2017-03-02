@@ -16,7 +16,7 @@ angular.module('AddressBook', [])
                     name: "Frodo Baggins",
                     mobile: "",
                     email: "frodo@ofthe.shire",
-                    url: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjLsbn6obbSAhUS22MKHSs1CAYQjRwIBw&url=http%3A%2F%2Fpopkey.co%2Fm%2Fxq1RX-elijah%2Bwood-lotr-lord%2Bof%2Bthe%2Brings&bvm=bv.148441817,d.cGc&psig=AFQjCNEghak7-3DS3UiX5fVQrK98IC8kfQ&ust=1488490651533952"
+                    url: "https://m.popkey.co/ee1ce5/xq1RX.gif"
                 }
             ]
         };
@@ -27,6 +27,7 @@ angular.module('AddressBook', [])
         'contactFactory',
         function ($scope, contactFactory) {
             $scope.contacts = contactFactory.contacts;
+            $scope.query = '';
 
             $scope.addContact = function () {
                 if ($scope.name === '') {
