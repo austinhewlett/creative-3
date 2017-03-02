@@ -47,6 +47,8 @@ angular.module('AddressBook', [])
                 $scope.mobile = '';
                 $scope.email = '';
                 $scope.url = '';
+
+                $scope.contactForm.$setPristine();
             }
         }
     ]);

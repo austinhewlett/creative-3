@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/main.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="application/javascript"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <!--<script src="//angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>-->
     <script src="js/app.js"></script>
 </head>
@@ -53,31 +53,34 @@
         <div class="modal fade" id="addContactModal" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h2>Add New Contact</h2>
+                    </div>
                     <div class="modal-body">
-                        <form name="contactForm" ng-submit="addContact(contactForm)">
-                            <h2>Add New Contact</h2>
+                        <form name="contactForm" id="contactForm" ng-submit="addContact()">
                             <div class="form-group">
                                 <label for="name">Name:</label>
-                                <input class="form-control" type="text" id="name" ng-model="name" required>
-                                <span ng-show="contactForm.name.$touched && contactForm.name.$invalid">Name is required</span>
+                                <input class="form-control" type="text" name="name" id="name" ng-model="name" required>
+                                <span class="error" ng-show="contactForm.name.$touched && contactForm.name.$invalid">Name is required</span>
                             </div>
                             <div class="form-group">
                                 <label for="mobile">Mobile:</label>
-                                <input class="form-control" type="text" id="mobile" ng-model="mobile">
-                                <span ng-show="contactForm.mobile.$invalid">Invalid Mobile Number</span>
+                                <input class="form-control" type="text" name="mobile" id="mobile" ng-model="mobile">
+                                <span class="error" ng-show="contactForm.mobile.$touched && contactForm.mobile.$invalid">Invalid Mobile Number</span>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input class="form-control" type="email" id="email" ng-model="email">
-                                <span ng-show="contactForm.email.$invalid">Invalid Email</span>
+                                <input class="form-control" type="email" name="email" id="email" ng-model="email">
+                                <span class="error" ng-show="contactForm.email.$touched && contactForm.email.$invalid">Invalid Email</span>
                             </div>
                             <div class="form-group">
                                 <label for="url">Image URL:</label>
-                                <input class="form-control" type="url" id="url" ng-model="url">
-                                <span ng-show="contactForm.url.$invalid">Invalid URL</span>
+                                <input class="form-control" type="url" name="url" id="url" ng-model="url">
+                                <span class="error" ng-show="contactForm.url.$touched && contactForm.url.$invalid">Invalid URL</span>
                             </div>
                             <div class="row">
-                                <button type="submit" class="btn btn-primary pull-right pad">
+                                <button type="submit" class="btn btn-primary pull-right pad" id="add-contact-btn">
                                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Contact
                                 </button>
                             </div>
